@@ -1,4 +1,4 @@
-# example from on the APREL library ( https://github.com/Stanford-ILIAD/APReL )
+# example based on the APREL library ( https://github.com/Stanford-ILIAD/APReL )
 
 import aprel
 import numpy as np
