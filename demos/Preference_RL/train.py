@@ -81,15 +81,11 @@ trajectory_env = TrajectoryRewardEnvironment(
     weights=np.array([-0.2, 0.7, 0.6]) # insert learnt reward function weights from APREL here
 )
 
-# Assuming `env` is your custom environment instance
-# For example:
-# env = YourCustomMountainCarEnv()
-# Replace the above line with the actual instantiation of your environment
 
-# Initialize the agent with your environment instance
+# Initialize the agent with the environment instance
 model = PPO("MlpPolicy", trajectory_env, verbose=1, learning_rate=1e-3)
 
-# uncommment this line if you want to load a pretrained model
+# uncommment this line if you want to resume training for a pretrained model
 #model = PPO.load("ppo_mountain_car", env=trajectory_env)
 
 try:
@@ -107,6 +103,3 @@ except KeyboardInterrupt:
 # Save the model after training (or interruption)
 model.save("ppo_mountain_car")
 print(f"Model saved to ppo_mountain_car")
-
-
-# To load the model, you can use: model = PPO.load("ppo_mountain_car", env=env)

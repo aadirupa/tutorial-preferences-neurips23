@@ -36,7 +36,7 @@ if env_has_rgb_render:
 done = False
 t = 0
 while not done and t < max_episode_length:
-    act = env.action_space.sample()
+    act, _states = model.predict(obs, deterministic=True)
     traj.append((obs,act))
     obs, _, done, _ = env.step(act)
     t += 1
